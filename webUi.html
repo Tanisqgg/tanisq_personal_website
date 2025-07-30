@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Tanisq Jawahar – CS & Data Science @ UW–Madison</title>
+
+    <!-- Tailwind & Icons -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <!-- Your custom stylesheet -->
+    <link rel="stylesheet" href="css/styles.css"/>
+
+    <!-- Critical small overrides -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* Make the background transition smooth */
+        #about {
+            transition: background 1.2s ease-in-out;
+        }
+
+        /* Style for the slideshow image transition */
+        #slideshow-image {
+            transition: opacity 1.2s ease-in-out;
+        }
+
+        /* Nav link underline */
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            transition: width .25s;
+        }
+
+        .nav-link:hover::after,
+        .active::after {
+            width: 100%;
+        }
+
+        /* Project card hover */
+        .project-card {
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+            0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Skill badge hover */
+        .skill-badge {
+            transition: all .25s;
+        }
+
+        .skill-badge:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+<!-- NAV -->
+<nav class="fixed w-full bg-white shadow-sm z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+            <div class="flex items-center">
+                <span class="text-xl font-bold gradient-text">Tanisq Jawahar</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="nav-link text-gray-700 hover:text-gray-900">About</a>
+                <a href="#coursework" class="nav-link text-gray-700 hover:text-gray-900">Coursework</a>
+                <a href="#experience" class="nav-link text-gray-700 hover:text-gray-900">Experience</a>
+                <a href="#projects" class="nav-link text-gray-700 hover:text-gray-900">Projects</a>
+                <a href="#skills" class="nav-link text-gray-700 hover:text-gray-900">Skills</a>
+                <a href="#contact" class="nav-link text-gray-700 hover:text-gray-900">Contact</a>
+            </div>
+            <div class="md:hidden flex items-center">
+                <button id="menu-toggle" class="text-gray-500 hover:text-gray-900 focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <a href="#about"
+               class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">About</a>
+            <a href="#coursework"
+               class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Coursework</a>
+            <a href="#experience"
+               class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Experience</a>
+            <a href="#projects"
+               class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Projects</a>
+            <a href="#skills"
+               class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Skills</a>
+            <a href="#contact"
+               class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO / ABOUT -->
+<section id="about" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row items-center md:justify-between">
+        <!-- Text Column -->
+        <div id="hero-text" class="md:w-1/2 mb-10 md:mb-0 md:pr-10 p-6 rounded-lg text-gray-900">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Tanisq Jawahar</h1>
+            <h2 class="text-2xl md:text-3xl gradient-text font-semibold mb-6">
+                CS & Data Science @ UW–Madison • ML/Agentic AI • SWE • DS
+            </h2>
+            <p class="text-lg text-gray-700 mb-8">
+                I build AI systems that solve messy, real problems—deepfake takedown,
+                health coaching from wearable data, and fast, clean web tools.
+                Always shipping, always learning.
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <a href="https://drive.google.com/…"
+                   class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-medium hover:shadow-lg transition-all duration-300 flex items-center">
+                    <i class="fas fa-download mr-2"></i>Resume
+                </a>
+                <a href="https://www.linkedin.com/in/tanisq"
+                   class="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:shadow-lg transition-all duration-300 flex items-center">
+                    <i class="fab fa-linkedin-in mr-2"></i>LinkedIn
+                </a>
+                <a href="https://github.com/Tanisqgg"
+                   class="px-6 py-3 bg-gray-800 text-white rounded-lg font-medium hover:shadow-lg transition-all duration-300 flex items-center">
+                    <i class="fab fa-github mr-2"></i>GitHub
+                </a>
+            </div>
+        </div>
+        <!-- ========= SLIDESHOW (Hero Image) ========= -->
+        <div class="w-full max-w-md mx-auto md:ml-auto relative group">
+            <img id="slideshow-image" src="assets/hero/profile1.jpg"
+                 class="rounded-2xl shadow-xl w-full max-w-md border-4 border-white transition-opacity duration-1000 ease-in-out">
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== COURSEWORK ===== -->
+<section id="coursework" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-white rounded-xl shadow-sm">
+    <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4">Relevant Coursework</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-gray-700">
+        <ul class="list-disc pl-6 space-y-1">
+            <li>Artificial Intelligence</li>
+            <li>Machine Learning</li>
+            <li>Data Structures & Algorithms (CS 400)</li>
+        </ul>
+        <ul class="list-disc pl-6 space-y-1">
+            <li>Operating Systems & Machine Organization</li>
+            <li>Database Systems / SQL</li>
+            <li>Probability, Statistics & Linear Algebra</li>
+        </ul>
+        <ul class="list-disc pl-6 space-y-1">
+            <li>Computer Vision</li>
+            <li>Software Engineering</li>
+            <li>AI Safety / Ethics Seminar</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ===== EXPERIENCE ===== -->
+<section id="experience" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4">Experience & Leadership</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+    </div>
+
+    <div class="space-y-8">
+
+        <!-- RedElevenLabs -->
+        <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                <h3 class="text-xl font-bold text-gray-800">Machine Learning Engineer & Co‑Founder – RedElevenLabs</h3>
+                <span class="text-gray-600">Jan 2025 – Present</span>
+            </div>
+            <ul class="list-disc pl-6 text-gray-600 space-y-1 text-sm">
+                <li>Built and deployed an AI content-safety platform that fingerprints client face/voice and scans
+                    surface &
+                    dark-web sources (∼500 videos/min), flagging deepfakes and unauthorized content in <120 ms via
+                    FastAPI
+                    microservices (Python, PyTorch, Hugging Face, Tor, SerpAPI).
+                </li>
+                <li>Raised face-match precision to 95% and age-verify accuracy to 93% via Bayesian hyperparameter
+                    tuning;
+                    maintained >90% test coverage with GitHub Actions CI/CD.
+                </li>
+                <li>Secured $7 K seed funding (2/250 teams, Transcend UW Innovation Competition 2025) by demonstrating
+                    measurable impact on safety compliance.
+                </li>
+            </ul>
+        </div>
+
+        <!-- PACCAR -->
+        <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                <h3 class="text-xl font-bold text-gray-800">Software Engineering Intern – PACCAR (Contract)</h3>
+                <span class="text-gray-600">Jun 2024 – Aug 2024</span>
+            </div>
+            <ul class="list-disc pl-6 text-gray-600 space-y-1 text-sm">
+                <li>Maintained & optimized logistics modules (15K+ LOC) to increase stability and performance.</li>
+                <li>Created JUnit integration tests and automated builds/deployments via Jenkins.</li>
+            </ul>
+        </div>
+
+        <!-- EcoClosetApp -->
+        <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                <h3 class="text-xl font-bold text-gray-800">Software Engineer – EcoClosetApp</h3>
+                <span class="text-gray-600">Oct 2023 – May 2024</span>
+            </div>
+            <ul class="list-disc pl-6 text-gray-600 space-y-1 text-sm">
+                <li>Built predictive analytics model (R/Python) to rate clothing brands on ESG scores; +60% accuracy
+                    over baseline.
+                </li>
+                <li>Designed SQL + Firestore pipelines and caching layers, cutting retrieval time by ~25%.</li>
+            </ul>
+        </div>
+
+        <!-- Leadership / Clubs -->
+        <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                <h3 class="text-xl font-bold text-gray-800">Leadership & Community</h3>
+                <span class="text-gray-600">Ongoing</span>
+            </div>
+            <ul class="list-disc pl-6 text-gray-600 space-y-1 text-sm">
+                <li>Speaker at UW Pitch Madness & Build with AI Meetups (Agentic AI & Trade Automation talk).</li>
+                <li>Contributor to IEEE/academic papers on Digital Twin & ESG (patent in progress).</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-white rounded-xl shadow-sm">
+    <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4">Projects</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Deepfake Takedown -->
+        <div class="project-card bg-gray-50 rounded-xl overflow-hidden shadow-md">
+            <img src="assets/deepfake.png" alt="Deepfake Takedown" class="w-full h-48 object-cover">
+            <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">AI Deepfake Takedown</h3>
+                <p class="text-gray-600 mb-4">Agentic CV + LLM system to find & remove unauthorized content across the
+                    web.</p>
+                <a href="https://github.com/Tanisqgg/Ai_deepfake_takedown"
+                   class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                    Repo <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Sleep Coach -->
+        <div class="project-card bg-gray-50 rounded-xl overflow-hidden shadow-md">
+            <img src="assets/sleepcoach.png" alt="AI Sleep Coach" class="w-full h-48 object-cover">
+            <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">AI Sleep Coach</h3>
+                <p class="text-gray-600 mb-4">Google Fit API + anomaly detection & LangChain agents for recovery
+                    guidance.</p>
+                <a href="https://github.com/Tanisqgg/RingConn-LLM-Recovery-coach"
+                   class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                    Repo <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- U-18 Visual Detection -->
+        <div class="project-card bg-gray-50 rounded-xl overflow-hidden shadow-md">
+            <img src="assets/u18.png" alt="U-18 Detection" class="w-full h-48 object-cover">
+            <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">AI Visual U‑18 Detection</h3>
+                <p class="text-gray-600 mb-4">Standalone model repo for age estimation & policy filters.</p>
+                <a href="https://github.com/Tanisqgg/AI_visual_u-18_detection"
+                   class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                    Repo <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- FileSwiper -->
+        <div class="project-card bg-gray-50 rounded-xl overflow-hidden shadow-md">
+            <img src="assets/fileswiper.png" alt="FileSwiper" class="w-full h-48 object-cover">
+            <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">FileSwiper – Storage Manager</h3>
+                <p class="text-gray-600 mb-4">Swipe UI to delete/keep/preview files; duplicate detection & undo
+                    support.</p>
+                <a href="https://github.com/Tanisqgg/FileSwiper-storage-manager"
+                   class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                    Repo <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- AI Teeko Game -->
+        <div class="project-card bg-gray-50 rounded-xl overflow-hidden shadow-md">
+            <img src="assets/teeko.png" alt="AI Teeko" class="w-full h-48 object-cover">
+            <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">AI Teeko Game</h3>
+                <p class="text-gray-600 mb-4">Minimax-based Teeko game with multiple difficulty levels (Python).</p>
+                <a href="https://github.com/Tanisqgg/AI-Teeko_game"
+                   class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                    Repo <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Facial Analysis PCA -->
+        <div class="project-card bg-gray-50 rounded-xl overflow-hidden shadow-md">
+            <img src="assets/pca.png" alt="Facial PCA" class="w-full h-48 object-cover">
+            <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">Facial Analysis using PCA</h3>
+                <p class="text-gray-600 mb-4">PCA pipeline for facial feature extraction & visualization.</p>
+                <a href="https://github.com/Tanisqgg/facial_analysis_PCA"
+                   class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                    Repo <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4">Skills</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+    </div>
+
+    <!-- CATEGORY: Languages -->
+    <h3 class="text-xl font-semibold mb-4">Languages</h3>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-10">
+        <div class="skill-badge bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md"><i
+                class="fab fa-python text-4xl mb-2"></i>
+            <p>Python</p></div>
+        <div class="skill-badge bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md"><i
+                class="fab fa-java text-4xl mb-2"></i>
+            <p>Java</p></div>
+        <div class="skill-badge bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md"><i
+                class="fab fa-js text-4xl mb-2"></i>
+            <p>JavaScript / TS</p></div>
+        <div class="skill-badge bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md"><i
+                class="fas fa-database text-4xl mb-2"></i>
+            <p>SQL</p></div>
+        <div class="skill-badge bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md"><i
+                class="fas fa-chart-line text-4xl mb-2"></i>
+            <p>R</p></div>
+    </div>
+
+    <!-- CATEGORY: AI / ML -->
+    <h3 class="text-xl font-semibold mb-4">AI / ML</h3>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-10">
+        <div class="skill-badge bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md"><i
+                class="fas fa-brain text-4xl mb-2"></i>
+            <p>PyTorch</p></div>
+        <div class="skill-badge bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md"><i
+                class="fas fa-network-wired text-4xl mb-2"></i>
+            <p>TensorFlow</p></div>
+        <div class="skill-badge bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md"><i
+                class="fas fa-robot text-4xl mb-2"></i>
+            <p>LangChain / crewAI</p></div>
+        <div class="skill-badge bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md"><i
+                class="fas fa-image text-4xl mb-2"></i>
+            <p>OpenCV</p></div>
+        <div class="skill-badge bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md"><i
+                class="fas fa-cubes text-4xl mb-2"></i>
+            <p>scikit‑learn</p></div>
+        <div class="skill-badge bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md"><i
+                class="fas fa-vector-square text-4xl mb-2"></i>
+            <p>RAG / FAISS / Pinecone</p></div>
+    </div>
+
+    <!-- CATEGORY: Web / Backend -->
+    <h3 class="text-xl font-semibold mb-4">Web & Backend</h3>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-10">
+        <div class="skill-badge bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md"><i
+                class="fas fa-bolt text-4xl mb-2"></i>
+            <p>FastAPI / Flask / Django</p></div>
+        <div class="skill-badge bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md"><i
+                class="fab fa-react text-4xl mb-2"></i>
+            <p>React / Next.js</p></div>
+        <div class="skill-badge bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md"><i
+                class="fab fa-node-js text-4xl mb-2"></i>
+            <p>Node.js / Express</p></div>
+        <div class="skill-badge bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md"><i
+                class="fas fa-paint-brush text-4xl mb-2"></i>
+            <p>Tailwind CSS</p></div>
+        <div class="skill-badge bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md"><i
+                class="fas fa-plug text-4xl mb-2"></i>
+            <p>REST / GraphQL APIs</p></div>
+        <div class="skill-badge bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md"><i
+                class="fas fa-clipboard-check text-4xl mb-2"></i>
+            <p>JUnit / PyTest</p></div>
+    </div>
+
+    <!-- CATEGORY: Data, Cloud & DevOps -->
+    <h3 class="text-xl font-semibold mb-4">Data, Cloud & DevOps</h3>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-10">
+        <div class="skill-badge bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md"><i
+                class="fas fa-database text-4xl mb-2"></i>
+            <p>PostgreSQL / Firestore</p></div>
+        <div class="skill-badge bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md"><i
+                class="fab fa-aws text-4xl mb-2"></i>
+            <p>AWS (EC2, S3, Lambda)</p></div>
+        <div class="skill-badge bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md"><i
+                class="fab fa-docker text-4xl mb-2"></i>
+            <p>Docker</p></div>
+        <div class="skill-badge bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md"><i
+                class="fas fa-sync text-4xl mb-2"></i>
+            <p>CI/CD (Jenkins, GH Actions)</p></div>
+    </div>
+
+    <!-- CATEGORY: Automation / Other -->
+    <h3 class="text-xl font-semibold mb-4">Automation & Other</h3>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div class="skill-badge bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md"><i
+                class="fas fa-cogs text-4xl mb-2"></i>
+            <p>UiPath RPA</p></div>
+        <div class="skill-badge bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md"><i
+                class="fab fa-git-alt text-4xl mb-2"></i>
+            <p>Git / GitHub</p></div>
+        <div class="skill-badge bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md"><i
+                class="fas fa-users text-4xl mb-2"></i>
+            <p>Agile / Scrum</p></div>
+        <div class="skill-badge bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md"><i
+                class="fas fa-comments text-4xl mb-2"></i>
+            <p>Prompt Engg.</p></div>
+        <div class="skill-badge bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md"><i
+                class="fas fa-stethoscope text-4xl mb-2"></i>
+            <p>Google Fit API</p></div>
+        <div class="skill-badge bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md"><i
+                class="fas fa-lock text-4xl mb-2"></i>
+            <p>AI Safety / Ethics</p></div>
+    </div>
+
+    <!-- Certifications -->
+    <h3 class="text-2xl font-bold mt-16 mb-6 text-center">Certifications</h3>
+    <ul class="list-disc pl-6 text-gray-600 space-y-1 max-w-xl mx-auto text-sm">
+        <li>Generative AI for Everyone – DeepLearning.AI</li>
+        <li>Agentic AI Developer – lyzr.ai</li>
+        <li>Agentic AI – crewAI</li>
+        <li>UI‑Path RPA Developer</li>
+        <li>AWS ML Engineer (in progress)</li>
+    </ul>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-white rounded-xl shadow-sm">
+    <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4">Get In Touch</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+    </div>
+    <div class="max-w-xl mx-auto text-center text-gray-600 space-y-4">
+        <p>Email: <a class="text-blue-600 font-medium" href="mailto:jawahartanisq@gmail.com">jawahartanisq@gmail.com</a>
+        </p>
+        <p>Open to internships, research collabs, and hackathons.</p>
+        <div class="flex justify-center space-x-6 mt-6">
+            <a href="https://github.com/Tanisqgg" class="text-gray-400 hover:text-gray-800"><i
+                    class="fab fa-github text-2xl"></i></a>
+            <a href="https://www.linkedin.com/in/tanisq" class="text-gray-400 hover:text-gray-800"><i
+                    class="fab fa-linkedin-in text-2xl"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="bg-gray-800 text-white py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto text-center text-gray-400 text-sm">
+        <p>© <span id="year"></span> Tanisq Jawahar. Built with ❤️ & Tailwind.</p>
+    </div>
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+    // --- START: NEW SLIDESHOW SCRIPT ---
+    const heroSection = document.getElementById('about');
+    const slideshowImage = document.getElementById('slideshow-image');
+    let slideshowInterval;
+
+    const slides = [
+        {
+            image: 'assets/hero/profile1.jpg',
+            // Lighter, more subtle gradient
+            gradient: 'linear-gradient(135deg, #e0eafc, #cfdef3)'
+        },
+        {
+            image: 'assets/hero/profile2.jpg',
+            // A very light blue gradient
+            gradient: 'linear-gradient(135deg, #d4eaf7, #d8e5ee)'
+        },
+        {
+            image: 'assets/hero/profile3.jpg',
+            // A light, neutral gray gradient
+            gradient: 'linear-gradient(135deg, #f5f7fa, #e0e5ea)'
+        }
+    ];
+
+    let currentSlide = 0;
+
+    function changeSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+
+        // Fade out the image
+        slideshowImage.style.opacity = 0;
+
+        setTimeout(() => {
+            // Change the image source and background gradient
+            slideshowImage.src = slides[currentSlide].image;
+            heroSection.style.background = slides[currentSlide].gradient;
+
+            // Fade in the new image
+            slideshowImage.style.opacity = 1;
+        }, 1200); // Match the CSS transition duration
+    }
+
+    // Function to start the slideshow
+    function startSlideshow() {
+        // Clear any existing interval to prevent speeding up
+        clearInterval(slideshowInterval);
+        slideshowInterval = setInterval(changeSlide, 5000);
+    }
+
+    // Function to pause the slideshow
+    function pauseSlideshow() {
+        clearInterval(slideshowInterval);
+    }
+
+    // Add event listeners for pausing and resuming
+    slideshowImage.addEventListener('mouseenter', pauseSlideshow);
+    slideshowImage.addEventListener('mouseleave', startSlideshow);
+
+    // Set initial state and start the slideshow
+    heroSection.style.background = slides[0].gradient;
+    startSlideshow();
+    // --- END: NEW SLIDESHOW SCRIPT ---
+
+    // Mobile menu toggle
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+
+    // Smooth scroll & active link
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            e.preventDefault();
+            const target = document.querySelector(a.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({behavior: 'smooth'});
+            }
+            document.getElementById('mobile-menu').classList.add('hidden');
+        });
+    });
+
+    // Scroll-spy for nav links
+    window.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        let current = '';
+        sections.forEach(sec => {
+            const sectionTop = sec.offsetTop;
+            if (pageYOffset >= sectionTop - 100) { // Adjusted offset for better accuracy
+                current = sec.getAttribute('id');
+            }
+        });
+        navLinks.forEach(l => {
+            l.classList.remove('active');
+            if (l.getAttribute('href') === `#${current}`) {
+                l.classList.add('active');
+            }
+        });
+    });
+
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // --- START: NEW SCRIPT TO OPEN LINKS IN NEW TAB ---
+    document.querySelectorAll('a').forEach(link => {
+        // Check if the link goes to an external site
+        if (link.hostname !== window.location.hostname) {
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer'; // Good practice for security
+        }
+    });
+    // --- END: NEW SCRIPT ---
+</script>
+</body>
+</html>
+
+
+
+
