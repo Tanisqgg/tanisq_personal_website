@@ -181,6 +181,9 @@ p {
 /*--------------------------------------
   9. Enhanced Mobile Menu
 --------------------------------------*/
+
+/* ↓ COMMENT OUT the old ID-based overrides: they were forcing #mobile-menu to stay visible. ↓ */
+/*
 #mobile-menu {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: top;
@@ -195,7 +198,31 @@ p {
     transform: scaleY(1);
     opacity: 1;
 }
+*/
 
+/* ↑ Now only the class-based rules below apply ↑ */
+
+/* Base (hidden) state */
+.modern-mobile-menu {
+    background: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(25px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* prevent clicks hitting “invisible” menu */
+    pointer-events: none;
+}
+
+/* Open state */
+.modern-mobile-menu.show {
+    transform: translateY(0);
+    opacity: 1;
+
+    /* re-enable interaction */
+    pointer-events: auto;
+}
 /*--------------------------------------
   10. Enhanced Scrollbar
 --------------------------------------*/
