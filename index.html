@@ -109,7 +109,29 @@
             width: 100%;
         }
 
+        /* Mobile menu improvements */
+        .mobile-menu {
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
+        .mobile-menu.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .mobile-menu-link {
+            transition: all 0.3s ease;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin: 4px 0;
+        }
+
+        .mobile-menu-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(8px);
+        }
 
         /* Complex hero section */
         .hero-gradient {
@@ -553,45 +575,142 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        /* Enhanced mobile menu */
-        .modern-mobile-menu {
-            background: rgba(10, 10, 10, 0.98);
-            backdrop-filter: blur(25px);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            transform: translateY(-100%);
+        /* Enhanced mobile menu - completely reworked */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 999;
             opacity: 0;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .modern-mobile-menu.show {
-            transform: translateY(0);
+        .mobile-menu-overlay.show {
             opacity: 1;
+            visibility: visible;
         }
 
-        .modern-mobile-link {
-            padding: 15px 20px;
-            border-radius: 12px;
-            margin: 6px 0;
+        .mobile-menu-panel {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.95), rgba(20, 20, 20, 0.95));
+            backdrop-filter: blur(20px);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+        }
+
+        .mobile-menu-panel.show {
+            right: 0;
+        }
+
+        .mobile-menu-header {
+            padding: 2rem 1.5rem 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mobile-menu-close {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .mobile-menu-nav {
+            padding: 1rem 0;
+        }
+
+        .mobile-menu-item {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
             transition: all 0.3s ease;
             border-left: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
         }
 
-        .modern-mobile-link:hover {
+        .mobile-menu-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 107, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .mobile-menu-item:hover {
             background: rgba(255, 255, 255, 0.1);
+            border-left-color: #ff6b6b;
             transform: translateX(10px);
+        }
+
+        .mobile-menu-item:hover::before {
+            left: 100%;
+        }
+
+        .mobile-menu-item.active {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(78, 205, 196, 0.2));
             border-left-color: #ff6b6b;
         }
 
-        /* Enhanced logo with glow effect */
-        .modern-logo {
-            background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: gradient-shift 3s ease infinite;
-            font-weight: 800;
-            text-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+        .mobile-menu-footer {
+            padding: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .mobile-menu-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .mobile-menu-social a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-social a:hover {
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            transform: scale(1.1);
         }
 
         /* Menu toggle button enhancement */
@@ -599,13 +718,18 @@
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 12px;
-            padding: 8px;
+            padding: 10px;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .menu-toggle-btn:hover {
             background: rgba(255, 255, 255, 0.2);
             transform: scale(1.05);
+        }
+
+        .menu-toggle-btn.active {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.3), rgba(78, 205, 196, 0.3));
         }
 
         /* Responsive improvements */
@@ -645,6 +769,21 @@
             .modern-logo {
                 font-size: 1.5rem;
             }
+
+            /* Mobile menu responsive improvements */
+            .mobile-menu-panel {
+                width: 280px;
+            }
+
+            .mobile-menu-item {
+                padding: 1.2rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .mobile-menu-social a {
+                width: 40px;
+                height: 40px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -659,6 +798,25 @@
             
             .slideshow-container {
                 max-width: 280px;
+            }
+
+            /* Mobile menu for very small screens */
+            .mobile-menu-panel {
+                width: 100%;
+                right: -100%;
+            }
+
+            .mobile-menu-item {
+                padding: 1.5rem 1.5rem;
+                font-size: 1.1rem;
+            }
+
+            .mobile-menu-header {
+                padding: 1.5rem 1.5rem 1rem;
+            }
+
+            .mobile-menu-footer {
+                padding: 1.5rem;
             }
         }
 
@@ -705,16 +863,41 @@
                 </div>
             </div>
         </div>
-        <div id="mobile-menu" class="modern-mobile-menu md:hidden">
-            <div class="px-6 py-6 space-y-2">
-                <a href="#about" class="block modern-mobile-link text-white hover:text-gray-200">About</a>
-                <a href="#coursework" class="block modern-mobile-link text-white hover:text-gray-200">Coursework</a>
-                <a href="#experience" class="block modern-mobile-link text-white hover:text-gray-200">Experience</a>
-                <a href="#projects" class="block modern-mobile-link text-white hover:text-gray-200">Projects</a>
-                <a href="#skills" class="block modern-mobile-link text-white hover:text-gray-200">Skills</a>
-                <a href="#contact" class="block modern-mobile-link text-white hover:text-gray-200">Contact</a>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay">
+        <div id="mobile-menu-panel" class="mobile-menu-panel">
+            <div class="mobile-menu-header">
+                <h3 class="text-xl font-bold text-white">Menu</h3>
+                <button id="mobile-menu-close" class="mobile-menu-close">
+                    <i class="fas fa-times text-white"></i>
+                </button>
+            </div>
+            <nav class="mobile-menu-nav">
+                <a href="#about" class="mobile-menu-item">About</a>
+                <a href="#coursework" class="mobile-menu-item">Coursework</a>
+                <a href="#experience" class="mobile-menu-item">Experience</a>
+                <a href="#projects" class="mobile-menu-item">Projects</a>
+                <a href="#skills" class="mobile-menu-item">Skills</a>
+                <a href="#contact" class="mobile-menu-item">Contact</a>
+            </nav>
+            <div class="mobile-menu-footer">
+                <p class="text-gray-400 text-sm mb-4">Connect with me</p>
+                <div class="mobile-menu-social">
+                    <a href="https://github.com/Tanisqgg" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/tanisq" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:jawahartanisq@gmail.com">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
             </div>
         </div>
+    </div>
     </nav>
 
     <!-- HERO / ABOUT -->
@@ -1429,31 +1612,43 @@
             resetInterval();
         }
         
-        // Mobile menu with improved animations
-        document.getElementById('menu-toggle').addEventListener('click', () => {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('show');
-            
-            // Toggle menu icon
-            const menuIcon = document.querySelector('#menu-toggle i');
-            if (mobileMenu.classList.contains('show')) {
-                menuIcon.className = 'fas fa-times text-xl';
-            } else {
-                menuIcon.className = 'fas fa-bars text-xl';
+        // Mobile menu functionality
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenuPanel = document.getElementById('mobile-menu-panel');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+
+        function openMobileMenu() {
+            mobileMenuOverlay.classList.add('show');
+            mobileMenuPanel.classList.add('show');
+            menuToggle.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenuOverlay.classList.remove('show');
+            mobileMenuPanel.classList.remove('show');
+            menuToggle.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Open menu
+        menuToggle.addEventListener('click', openMobileMenu);
+
+        // Close menu with close button
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+
+        // Close menu when clicking overlay
+        mobileMenuOverlay.addEventListener('click', (e) => {
+            if (e.target === mobileMenuOverlay) {
+                closeMobileMenu();
             }
         });
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            const mobileMenu = document.getElementById('mobile-menu');
-            const menuToggle = document.getElementById('menu-toggle');
-            
-            if (mobileMenu.classList.contains('show') && 
-                !mobileMenu.contains(e.target) && 
-                !menuToggle.contains(e.target)) {
-                mobileMenu.classList.remove('show');
-                const menuIcon = document.querySelector('#menu-toggle i');
-                menuIcon.className = 'fas fa-bars text-xl';
+        // Close menu with escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenuOverlay.classList.contains('show')) {
+                closeMobileMenu();
             }
         });
 
@@ -1466,11 +1661,8 @@
                     target.scrollIntoView({behavior: 'smooth'});
                 }
                 // Close mobile menu if open
-                const mobileMenu = document.getElementById('mobile-menu');
-                if (mobileMenu.classList.contains('show')) {
-                    mobileMenu.classList.remove('show');
-                    const menuIcon = document.querySelector('#menu-toggle i');
-                    menuIcon.className = 'fas fa-bars text-xl';
+                if (mobileMenuOverlay.classList.contains('show')) {
+                    closeMobileMenu();
                 }
             });
         });
