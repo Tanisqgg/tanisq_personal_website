@@ -48,8 +48,12 @@ body {
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 /*--------------------------------------
@@ -203,26 +207,21 @@ p {
 /* ↑ Now only the class-based rules below apply ↑ */
 
 /* Base (hidden) state */
+/* Base (hidden) state */
 .modern-mobile-menu {
-    background: rgba(10, 10, 10, 0.98);
-    backdrop-filter: blur(25px);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
     transform: translateY(-100%);
     opacity: 0;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-
-    /* prevent clicks hitting “invisible” menu */
-    pointer-events: none;
+    pointer-events: none; /* allow taps to pass through when hidden */
 }
 
 /* Open state */
 .modern-mobile-menu.show {
     transform: translateY(0);
     opacity: 1;
-
-    /* re-enable interaction */
-    pointer-events: auto;
+    pointer-events: auto; /* catch taps when visible */
 }
+
 /*--------------------------------------
   10. Enhanced Scrollbar
 --------------------------------------*/
@@ -291,8 +290,12 @@ p {
 }
 
 @keyframes loading {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
 }
 
 /*--------------------------------------
@@ -302,15 +305,15 @@ p {
     .gradient-text {
         background-size: 150% 150%;
     }
-    
+
     .project-card:hover {
         transform: translateY(-4px) scale(1.01);
     }
-    
+
     .btn-primary:hover {
         transform: translateY(-1px);
     }
-    
+
     .floating-animation {
         animation: float 4s ease-in-out infinite;
     }
@@ -346,12 +349,12 @@ img {
     .certification-card::before {
         display: none;
     }
-    
+
     .gradient-text {
         color: #000 !important;
         background: none !important;
     }
-    
+
     body {
         background: white !important;
     }
@@ -365,7 +368,7 @@ img {
         background: rgba(0, 0, 0, 0.8);
         color: white;
     }
-    
+
     .section-card h3,
     .section-card p {
         color: white;
@@ -381,7 +384,7 @@ img {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
-    
+
     .floating-animation {
         animation: none;
     }
