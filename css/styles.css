@@ -181,19 +181,47 @@ p {
 /*--------------------------------------
   9. Enhanced Mobile Menu
 --------------------------------------*/
-#mobile-menu {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    transform-origin: top;
-}
-
-#mobile-menu.hidden {
-    transform: scaleY(0);
+.modern-mobile-menu {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(-100%);
     opacity: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 40;
 }
 
-#mobile-menu:not(.hidden) {
-    transform: scaleY(1);
+.modern-mobile-menu.show {
+    transform: translateY(0);
     opacity: 1;
+}
+
+/* Ensure mobile menu doesn't block content */
+.modern-mobile-menu {
+    pointer-events: none;
+}
+
+.modern-mobile-menu.show {
+    pointer-events: auto;
+}
+
+/* Mobile menu link styles */
+.modern-mobile-link {
+    transition: all 0.3s ease;
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin: 6px 0;
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+
+.modern-mobile-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(10px);
+    text-decoration: none;
+    color: white;
 }
 
 /*--------------------------------------
@@ -286,6 +314,18 @@ p {
 
     .floating-animation {
         animation: float 4s ease-in-out infinite;
+    }
+
+    /* Ensure mobile menu works properly on mobile */
+    .modern-mobile-menu {
+        width: 100%;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+
+    .modern-mobile-link {
+        padding: 12px 16px;
+        font-size: 16px;
     }
 }
 
