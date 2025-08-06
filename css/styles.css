@@ -48,12 +48,8 @@ body {
 }
 
 @keyframes float {
-    0%, 100% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
 }
 
 /*--------------------------------------
@@ -185,9 +181,6 @@ p {
 /*--------------------------------------
   9. Enhanced Mobile Menu
 --------------------------------------*/
-
-/* ↓ COMMENT OUT the old ID-based overrides: they were forcing #mobile-menu to stay visible. ↓ */
-/*
 #mobile-menu {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: top;
@@ -201,25 +194,6 @@ p {
 #mobile-menu:not(.hidden) {
     transform: scaleY(1);
     opacity: 1;
-}
-*/
-
-/* ↑ Now only the class-based rules below apply ↑ */
-
-/* Base (hidden) state */
-/* Base (hidden) state */
-.modern-mobile-menu {
-    transform: translateY(-100%);
-    opacity: 0;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    pointer-events: none; /* allow taps to pass through when hidden */
-}
-
-/* Open state */
-.modern-mobile-menu.show {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto; /* catch taps when visible */
 }
 
 /*--------------------------------------
@@ -290,12 +264,8 @@ p {
 }
 
 @keyframes loading {
-    0% {
-        background-position: 200% 0;
-    }
-    100% {
-        background-position: -200% 0;
-    }
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
 }
 
 /*--------------------------------------
