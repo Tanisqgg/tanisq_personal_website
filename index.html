@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tanisq Jawahar — Software Engineer</title>
-  <meta name="description" content="Tanisq Jawahar — CS + AI/Data Science @ UW–Madison. New-grad engineer focused on AI systems, backend, and data products.">
-  <meta name="keywords" content="Tanisq Jawahar, UW-Madison, Computer Science, Data Science, AI, Machine Learning, Software Engineer">
+  <title>Tanisq Jawahar — AI/Data Platform Engineer</title>
+  <meta name="description" content="Tanisq Jawahar — CS + AI/Data Science @ UW–Madison. Building AI-powered data platforms, production SaaS integrations, and intelligent analytics systems across telematics, civic data, and content safety.">
+  <meta name="keywords" content="Tanisq Jawahar, UW-Madison, Computer Science, Data Science, AI, Machine Learning, Software Engineer, AI Platform Engineer, Telematics Intelligence, SaaS Integrations, Data Pipelines, Civic Data, Geospatial Analytics">
 
   <script defer src="/_vercel/insights/script.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -327,7 +327,7 @@
     }
     .card-link:hover { opacity: 0.72; }
 
-    /* Knowledge Map featured card layout */
+    /* Featured wide card icon layout */
     .km-card-inner {
       display: flex;
       align-items: flex-start;
@@ -637,6 +637,57 @@
       *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; }
       .fade-in { opacity: 1; transform: none; }
     }
+
+    /* === SCREENSHOT CAROUSEL === */
+    .km-carousel { position: relative; width: 100%; background: var(--bg-surface); }
+    .km-carousel-imgwrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      background: #ddd8cc;
+    }
+    .km-carousel-track {
+      display: flex;
+      height: 100%;
+      transition: transform 0.35s ease;
+      will-change: transform;
+    }
+    .km-carousel-slide { min-width: 100%; height: 100%; flex-shrink: 0; }
+    .km-carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .km-carousel-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(247,244,238,0.9); border: 1px solid var(--border);
+      border-radius: 50%; width: 28px; height: 28px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 15px; color: var(--text);
+      transition: background 0.15s ease; z-index: 2;
+      line-height: 1; padding: 0;
+    }
+    .km-carousel-btn:hover { background: var(--bg-surface); border-color: var(--border-hi); }
+    .km-carousel-prev { left: 8px; }
+    .km-carousel-next { right: 8px; }
+    .km-carousel-footer {
+      padding: 8px 14px 10px;
+      display: flex; align-items: center; justify-content: space-between; gap: 8px;
+      border-top: 1px solid var(--border);
+    }
+    .km-carousel-caption { font-size: 11.5px; color: var(--text-2); line-height: 1.4; flex: 1; }
+    .km-carousel-dots { display: flex; gap: 5px; flex-shrink: 0; }
+    .km-carousel-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--border-hi); cursor: pointer;
+      border: none; padding: 0;
+      transition: background 0.15s ease;
+    }
+    .km-carousel-dot.active { background: var(--accent); }
+    .km-carousel-note {
+      font-size: 11px; color: var(--text-3); text-align: center;
+      padding: 0 14px 8px; font-style: italic;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .km-carousel-track { transition: none; }
+    }
   </style>
 </head>
 
@@ -691,13 +742,13 @@
       <h1 class="hero-name">Tanisq Jawahar</h1>
       <p class="hero-subtitle">Computer Science + AI/Data Science &middot; UW&ndash;Madison</p>
 
-      <h2 class="hero-headline">Software for AI,<br>data, and real users.</h2>
+      <h2 class="hero-headline">AI data platforms,<br>telematics intelligence,<br>production SaaS.</h2>
 
       <p class="hero-body">
-        I build <strong>production-minded software</strong> across AI systems, backend platforms,
-        data products, and full-stack applications.<br><br>
-        Looking for full-time new-grad roles in <strong>SWE, ML Engineering,
-        Data Engineering, Backend, Full-Stack,</strong> and <strong>AI Platform Engineering</strong>.
+        I build <strong>AI-powered data platforms</strong>, production SaaS integrations, and intelligent analytics systems
+        — currently working across telematics infrastructure, civic data intelligence, and content safety AI.<br><br>
+        Looking for full-time new-grad roles in <strong>ML Engineering, AI Platform Engineering,
+        Data Engineering, Software Engineering,</strong> and <strong>startup engineering</strong>.
       </p>
 
       <div class="hero-actions">
@@ -726,27 +777,32 @@
 
       <div class="work-grid">
 
-        <!-- 1 · Knowledge Map — featured full-width -->
+        <!-- 1 · AI-Powered Telematics Intelligence Platform — featured full-width -->
         <article class="work-card span-2 fade-in">
           <div class="km-card-inner">
             <div class="km-card-icon">
-              <i class="fas fa-map"></i>
+              <i class="fas fa-satellite-dish"></i>
             </div>
             <div class="km-card-text">
-              <h3 class="work-card-title">Knowledge Map v2</h3>
+              <p style="font-size:10px;font-weight:600;letter-spacing:0.09em;text-transform:uppercase;color:var(--text-3);margin-bottom:6px">AI Systems &middot; Telematics &middot; Construction Tech</p>
+              <h3 class="work-card-title">AI-Powered Telematics Intelligence Platform</h3>
               <p class="work-card-desc">
-                Interactive RShiny analytics platform funded by the Chan Zuckerberg Initiative.
-                Built map overlays, interactive dashboards, and confidence-interval visualizations
-                to surface community survey insights (5,000+ responses) for policymakers and
-                stakeholders. Improved UI responsiveness and added representativeness scoring.
+                Working on integration and AI systems that help contractors make sense of complex telematics data
+                across equipment, vehicles, jobsites, vendors, and dealer accounts. The platform ingests raw provider
+                data from John Deere, Samsara, Azuga, Hilti, and other construction-tech platforms — normalizes it
+                into a common operational layer, and supports analytics for utilization, maintenance, fleet performance,
+                and anomaly detection.
               </p>
               <div class="tag-row">
-                <span class="tag">R / RShiny</span>
-                <span class="tag">Data Visualization</span>
-                <span class="tag">Survey Analytics</span>
-                <span class="tag">CZI-Funded</span>
+                <span class="tag">AI Systems</span>
+                <span class="tag">Telematics</span>
+                <span class="tag">Construction Tech</span>
+                <span class="tag">SaaS Integrations</span>
+                <span class="tag">OAuth</span>
+                <span class="tag">Data Pipelines</span>
+                <span class="tag">Fleet Intelligence</span>
               </div>
-              <p class="km-meta">UW&ndash;Madison Data Science Institute &middot; Sep 2025 – Present</p>
+              <p class="km-meta">IVO Systems &middot; May 2026 – Present</p>
             </div>
           </div>
         </article>
@@ -825,26 +881,55 @@
           </div>
         </article>
 
-        <!-- 6 · IV Surface Monitor -->
+        <!-- 6 · AI-Assisted Civic Data Intelligence Platform -->
         <article class="work-card fade-in">
-          <img src="assets/iv-surface-monitor.png" alt="IV Surface Monitor" class="work-card-img">
+
+          <!-- Screenshot carousel -->
+          <div class="km-carousel" id="civic-carousel">
+            <div class="km-carousel-imgwrap">
+              <div class="km-carousel-track" id="civic-track">
+                <div class="km-carousel-slide">
+                  <img src="assets/knowledge-map-start.png" alt="Knowledge Map platform home — upload your data to get started" loading="lazy">
+                </div>
+                <div class="km-carousel-slide">
+                  <img src="assets/knowledge-map-column-detection.png" alt="Assign column mappings: questions, geography (address and ZIP), and demographic fields" loading="lazy">
+                </div>
+                <div class="km-carousel-slide">
+                  <img src="assets/knowledge-map-visualizations.png" alt="Type-aware charts with representativeness scores and Census benchmark comparisons" loading="lazy">
+                </div>
+              </div>
+              <button class="km-carousel-btn km-carousel-prev" aria-label="Previous slide">&#8249;</button>
+              <button class="km-carousel-btn km-carousel-next" aria-label="Next slide">&#8250;</button>
+            </div>
+            <div class="km-carousel-footer">
+              <span class="km-carousel-caption" id="civic-caption">Knowledge Map platform home — upload your data to get started</span>
+              <div class="km-carousel-dots" id="civic-dots"></div>
+            </div>
+            <p class="km-carousel-note">Screenshots from private v2 demo &middot; No private source code or sensitive survey data shown.</p>
+          </div>
+
           <div class="work-card-body">
-            <h3 class="work-card-title">IV Surface Monitor</h3>
+            <p style="font-size:10px;font-weight:600;letter-spacing:0.09em;text-transform:uppercase;color:var(--text-3);margin-bottom:4px">AI/Data Platform &middot; Civic Tech &middot; Open Source</p>
+            <h3 class="work-card-title">AI-Assisted Civic Data Intelligence Platform</h3>
+            <p style="font-size:11px;color:var(--text-3);margin-bottom:8px">Private v2 research repo &middot; Public v1 foundation &middot; Demo walkthrough available</p>
             <p class="work-card-desc">
-              Quantitative finance dashboard for options implied-volatility analysis, SVI fitting,
-              and real-time arbitrage detection via Alpha Vantage data.
+              Built a private-repo v2 civic analytics platform expanding the original public Knowledge Map
+              dashboard into a reusable survey intelligence system. Research teams can upload raw CSV survey
+              data, automatically detect columns and question types, enrich responses with Census geography,
+              calculate representativeness scores, and generate accessible visualizations.
+              <br><span style="font-size:12px;color:var(--text-3)">v2 source is private due to research-team constraints — workflow documented through screenshots and a public technical case study.</span>
             </p>
             <div class="tag-row">
-              <span class="tag">Python</span>
-              <span class="tag">Dash / Plotly</span>
-              <span class="tag">Quant Finance</span>
-              <span class="tag">Alpha Vantage</span>
+              <span class="tag">AI/Data Platform</span>
+              <span class="tag">Civic Tech</span>
+              <span class="tag">Survey Intelligence</span>
+              <span class="tag">Geospatial Analytics</span>
+              <span class="tag">Census API</span>
+              <span class="tag">Open Source</span>
             </div>
-            <a href="https://github.com/Tanisqgg/IV_surface_monitor" class="card-link"
-               target="_blank" rel="noopener noreferrer">
-              GitHub <i class="fas fa-arrow-right" style="font-size:10px"></i>
-            </a>
+            <p class="km-meta">UW&ndash;Madison Data Science Institute &middot; Sep 2025 – May 2026</p>
           </div>
+
         </article>
 
       </div>
@@ -940,16 +1025,35 @@
 
       <div class="exp-list">
 
-        <!-- Knowledge Map OSPO -->
+        <!-- IVO Systems -->
         <article class="exp-card fade-in">
           <div class="exp-header">
-            <span class="exp-role">Software Engineering Intern — Knowledge Map</span>
-            <span class="exp-date">Sep 2025 – Present</span>
+            <span class="exp-role">Software Engineering Intern — AI &amp; Telematics Systems</span>
+            <span class="exp-date">May 2026 – Present</span>
+          </div>
+          <p class="exp-company">IVO Systems</p>
+          <ul class="exp-bullets">
+            <li>Building AI-powered telematics intelligence systems that unify equipment, vehicle, GPS, utilization, diagnostics, and maintenance data across providers including John Deere, Samsara, Azuga, Hilti, and other construction-tech platforms.</li>
+            <li>Developing multi-provider integration pipelines to ingest, normalize, and analyze fragmented fleet and jobsite data inside IVO's production SaaS platform.</li>
+            <li>Extending OAuth and source-provider architecture to support multiple vendor and dealer accounts per contractor, improving support for complex fleet ownership and multi-account telematics workflows.</li>
+            <li>Working on AI-assisted analytics to detect equipment utilization patterns, surface anomalies, and convert raw telematics signals into actionable contractor insights.</li>
+            <li>Debugging production workflows across AppXchange imports, cron sync jobs, credential management, provider APIs, and legacy CodeIgniter/MySQL backend systems.</li>
+          </ul>
+        </article>
+
+        <!-- UW DSI — AI/Data Platform -->
+        <article class="exp-card fade-in">
+          <div class="exp-header">
+            <span class="exp-role">Software Engineering Intern — AI/Data Platform Engineering</span>
+            <span class="exp-date">Sep 2025 – May 2026</span>
           </div>
           <p class="exp-company">University of Wisconsin–Madison &middot; Data Science Institute</p>
           <ul class="exp-bullets">
-            <li>Building an RShiny analytics platform (CZI-funded) — improving UI responsiveness, adding map overlays and interactive dashboards for community stakeholders.</li>
-            <li>Analyzing 5,000+ survey responses using confidence intervals and representativeness scoring to improve data reliability.</li>
+            <li>Built an open-source AI-assisted survey intelligence platform that converted raw community survey data into geospatial, demographic, and representativeness-aware insights (CZI-funded).</li>
+            <li>Architected a schema-agnostic ingestion pipeline for automated CSV upload, column detection, question-type parsing, Census geocoding, confidence scoring, and visualization workflows.</li>
+            <li>Developed intelligent parsing support for single-choice, multi-select, Likert-scale, and open-ended survey questions, enabling type-aware analytics across diverse civic datasets.</li>
+            <li>Integrated geographic enrichment and representativeness scoring workflows to help nonprofits and public-sector teams evaluate demographic bias and statistical confidence.</li>
+            <li>Refactored backend architecture across ingestion, analysis, geography, scoring, and visualization layers to improve extensibility for open-source contributors.</li>
           </ul>
         </article>
 
@@ -1011,6 +1115,7 @@
             <span class="skill-tag">Java</span>
             <span class="skill-tag">JavaScript / TypeScript</span>
             <span class="skill-tag">SQL</span>
+            <span class="skill-tag">PHP</span>
             <span class="skill-tag">R</span>
             <span class="skill-tag">C#</span>
           </div>
@@ -1021,6 +1126,8 @@
             <span class="skill-tag">PyTorch</span>
             <span class="skill-tag">TensorFlow</span>
             <span class="skill-tag">scikit-learn</span>
+            <span class="skill-tag">Pandas</span>
+            <span class="skill-tag">NumPy</span>
             <span class="skill-tag">LangChain</span>
             <span class="skill-tag">crewAI</span>
             <span class="skill-tag">OpenCV</span>
@@ -1043,11 +1150,23 @@
           <span class="skills-row-label">Data / Cloud</span>
           <div class="skills-tags">
             <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">MySQL</span>
             <span class="skill-tag">Firestore</span>
             <span class="skill-tag">AWS (EC2, S3, Lambda)</span>
             <span class="skill-tag">Docker</span>
             <span class="skill-tag">Jenkins</span>
             <span class="skill-tag">GitHub Actions</span>
+          </div>
+        </div>
+        <div class="skills-row fade-in">
+          <span class="skills-row-label">Integrations</span>
+          <div class="skills-tags">
+            <span class="skill-tag">OAuth</span>
+            <span class="skill-tag">SaaS Integrations</span>
+            <span class="skill-tag">Data Pipelines</span>
+            <span class="skill-tag">Telematics</span>
+            <span class="skill-tag">REST APIs</span>
+            <span class="skill-tag">Data Normalization</span>
           </div>
         </div>
         <div class="skills-row fade-in">
@@ -1291,6 +1410,44 @@
     }, { threshold: 0.07 });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Civic Data screenshot carousel
+    (function () {
+      const captions = [
+        'Knowledge Map platform home — upload your data to get started',
+        'Assign column mappings: questions, geography (address and ZIP), and demographic fields',
+        'Type-aware charts with representativeness scores and Census benchmark comparisons',
+      ];
+      const track  = document.getElementById('civic-track');
+      const captEl = document.getElementById('civic-caption');
+      const dotsEl = document.getElementById('civic-dots');
+      if (!track) return;
+
+      let idx = 0;
+      const total = captions.length;
+
+      captions.forEach((_, i) => {
+        const d = document.createElement('button');
+        d.className = 'km-carousel-dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        d.addEventListener('click', () => goTo(i));
+        dotsEl.appendChild(d);
+      });
+
+      function goTo(n) {
+        idx = ((n % total) + total) % total;
+        track.style.transform = 'translateX(-' + idx * 100 + '%)';
+        captEl.textContent = captions[idx];
+        dotsEl.querySelectorAll('.km-carousel-dot').forEach((d, i) => {
+          d.classList.toggle('active', i === idx);
+        });
+      }
+
+      document.querySelector('#civic-carousel .km-carousel-prev')
+        .addEventListener('click', () => goTo(idx - 1));
+      document.querySelector('#civic-carousel .km-carousel-next')
+        .addEventListener('click', () => goTo(idx + 1));
+    })();
   </script>
 </body>
 </html>
