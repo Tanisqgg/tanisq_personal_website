@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tanisq Jawahar — AI/Data Platform Engineer</title>
-  <meta name="description" content="Tanisq Jawahar — CS + AI/Data Science @ UW–Madison. Building AI-powered data platforms, production SaaS integrations, and intelligent analytics systems across telematics, civic data, and content safety.">
+  <title>Tanisq Jawahar — Software Engineer</title>
+  <meta name="description" content="Tanisq Jawahar — CS + AI/Data Science @ UW–Madison. Seeking May 2027 new-grad roles in software engineering, ML engineering, data engineering, and AI platform engineering.">
   <meta name="keywords" content="Tanisq Jawahar, UW-Madison, Computer Science, Data Science, AI, Machine Learning, Software Engineer, AI Platform Engineer, Telematics Intelligence, SaaS Integrations, Data Pipelines, Civic Data, Geospatial Analytics">
 
   <script defer src="/_vercel/insights/script.js"></script>
@@ -638,6 +638,85 @@
       .fade-in { opacity: 1; transform: none; }
     }
 
+    /* === FEATURED MOMENTS CAROUSEL === */
+    .moments-sub {
+      font-size: 13.5px;
+      color: var(--text-2);
+      margin-top: -26px;
+      margin-bottom: 28px;
+      line-height: 1.6;
+      max-width: 560px;
+    }
+    .pow-carousel {
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      background: var(--bg-surface);
+    }
+    .pow-imgwrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      background: #ede8e0;
+    }
+    .pow-track {
+      display: flex;
+      flex-wrap: nowrap;
+      height: 100%;
+      transition: transform 0.4s ease;
+      will-change: transform;
+    }
+    .pow-slide { flex: 0 0 100%; width: 100%; height: 100%; }
+    .pow-slide img { width: 100%; height: 100%; display: block; }
+    .pow-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(247,244,238,0.88); border: 1px solid var(--border);
+      border-radius: 50%; width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 20px; color: var(--text);
+      transition: background 0.15s ease, border-color 0.15s ease;
+      z-index: 2; line-height: 1; padding: 0;
+      backdrop-filter: blur(4px);
+    }
+    .pow-btn:hover { background: var(--bg-surface); border-color: var(--border-hi); }
+    .pow-prev { left: 14px; }
+    .pow-next { right: 14px; }
+    .pow-footer {
+      padding: 16px 20px 18px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .pow-text { flex: 1; }
+    .pow-slide-title {
+      font-size: 14px; font-weight: 600;
+      color: var(--text); margin-bottom: 3px;
+      letter-spacing: -0.01em;
+    }
+    .pow-slide-caption { font-size: 13px; color: var(--text-2); line-height: 1.5; }
+    .pow-dots { display: flex; gap: 6px; flex-shrink: 0; padding-top: 4px; }
+    .pow-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--border-hi); cursor: pointer;
+      border: none; padding: 0;
+      transition: background 0.15s ease;
+    }
+    .pow-dot.active { background: var(--accent); }
+    @media (max-width: 640px) {
+      .pow-btn { width: 34px; height: 34px; font-size: 17px; }
+      .pow-prev { left: 8px; }
+      .pow-next { right: 8px; }
+      .pow-footer { flex-direction: column; gap: 10px; padding: 14px 16px 16px; }
+      .pow-dots { align-self: center; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .pow-track { transition: none; }
+    }
+
     /* === SCREENSHOT CAROUSEL === */
     .km-carousel { position: relative; width: 100%; background: var(--bg-surface); }
     .km-carousel-imgwrap {
@@ -649,11 +728,12 @@
     }
     .km-carousel-track {
       display: flex;
+      flex-wrap: nowrap;
       height: 100%;
       transition: transform 0.35s ease;
       will-change: transform;
     }
-    .km-carousel-slide { min-width: 100%; height: 100%; flex-shrink: 0; }
+    .km-carousel-slide { flex: 0 0 100%; width: 100%; height: 100%; }
     .km-carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .km-carousel-btn {
       position: absolute; top: 50%; transform: translateY(-50%);
@@ -736,19 +816,19 @@
 
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
-        Seeking full-time new-grad roles &middot; 2027
+        Seeking full-time new-grad roles &middot; May 2027
       </div>
 
       <h1 class="hero-name">Tanisq Jawahar</h1>
-      <p class="hero-subtitle">Computer Science + AI/Data Science &middot; UW&ndash;Madison</p>
+      <p class="hero-subtitle">CS + AI/Data Science &middot; UW&ndash;Madison</p>
 
-      <h2 class="hero-headline">AI data platforms,<br>telematics intelligence,<br>production SaaS.</h2>
+      <h2 class="hero-headline">Software Engineer building<br>AI-powered data systems.</h2>
 
       <p class="hero-body">
-        I build <strong>AI-powered data platforms</strong>, production SaaS integrations, and intelligent analytics systems
-        — currently working across telematics infrastructure, civic data intelligence, and content safety AI.<br><br>
-        Looking for full-time new-grad roles in <strong>ML Engineering, AI Platform Engineering,
-        Data Engineering, Software Engineering,</strong> and <strong>startup engineering</strong>.
+        CS + AI/Data Science student at UW&ndash;Madison seeking May 2027 new-grad roles in
+        <strong>software engineering, ML engineering, data engineering,</strong> and <strong>AI platform engineering</strong>.<br><br>
+        I build production-ready data platforms, SaaS integrations, and intelligent analytics systems
+        across telematics, civic data, and content safety.
       </p>
 
       <div class="hero-actions">
@@ -766,6 +846,68 @@
         </a>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ===== FEATURED MOMENTS ===== -->
+  <section id="moments" aria-labelledby="moments-title">
+    <div class="container">
+      <p class="section-label">Featured Moments</p>
+      <h2 class="section-title" id="moments-title">Proof of Work</h2>
+      <p class="moments-sub">Real products, demos, competitions, and research work across AI, data platforms, and startup engineering.</p>
+
+      <div class="pow-carousel fade-in" id="pow-carousel">
+
+        <div class="pow-imgwrap">
+          <div class="pow-track" id="pow-track">
+
+            <!-- Slide 1: Transcend $7K — crop to upper half to show faces, check, and banner -->
+            <div class="pow-slide">
+              <img
+                src="assets/hero/profile2.jpg"
+                alt="Tanisq holding a $7,000 check at the Transcend UW Innovation Competition — 2nd place out of 250 teams"
+                style="object-fit:cover; object-position:center 70%;">
+            </div>
+
+            <!-- Slide 2: Stage presentation — cover, positioned to show screen + presenter -->
+            <div class="pow-slide">
+              <img
+                src="assets/hero/profile4.jpg"
+                alt="Tanisq presenting an AI content-safety demo on stage at a university competition auditorium"
+                style="object-fit:cover; object-position:center 45%;">
+            </div>
+
+            <!-- Slide 3: Knowledge Map product screenshot — native 16:9, full cover -->
+            <div class="pow-slide">
+              <img
+                src="assets/knowledge-map-visualizations.png"
+                alt="Knowledge Map civic data platform — survey visualizations with Census representativeness scores"
+                style="object-fit:cover; object-position:center center;">
+            </div>
+
+            <!-- Slide 4: Skandalaris University Pitch — crop upper portion to show person + banner -->
+            <div class="pow-slide">
+              <img
+                src="assets/hero/profile3.jpg"
+                alt="Tanisq at the University Pitch competition representing UW–Madison alongside top entrepreneurship programs"
+                style="object-fit:cover; object-position:center 55%;">
+            </div>
+
+          </div>
+
+          <button class="pow-btn pow-prev" aria-label="Previous slide">&#8249;</button>
+          <button class="pow-btn pow-next" aria-label="Next slide">&#8250;</button>
+        </div>
+
+        <div class="pow-footer">
+          <div class="pow-text">
+            <p class="pow-slide-title" id="pow-title">Startup Funding</p>
+            <p class="pow-slide-caption" id="pow-caption">Raised $7K for an AI content-safety platform at the Transcend UW Innovation Competition.</p>
+          </div>
+          <div class="pow-dots" id="pow-dots"></div>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -1410,6 +1552,45 @@
     }, { threshold: 0.07 });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Proof of Work carousel
+    (function () {
+      const slides = [
+        { title: 'Startup Funding',      caption: 'Raised $7K for an AI content-safety platform at the Transcend UW Innovation Competition.' },
+        { title: 'Product Demos',        caption: 'Presented AI systems and technical product demos to student, founder, and engineering communities.' },
+        { title: 'Civic Data Platform',  caption: 'Built survey intelligence workflows with UW–Madison Data Science Institute.' },
+        { title: 'Cross-Domain Builder', caption: 'Shipped projects across AI safety, telematics, civic data, developer tools, and analytics.' },
+      ];
+      const track   = document.getElementById('pow-track');
+      const titleEl = document.getElementById('pow-title');
+      const captEl  = document.getElementById('pow-caption');
+      const dotsEl  = document.getElementById('pow-dots');
+      if (!track) return;
+
+      let idx = 0;
+      const total = slides.length;
+
+      slides.forEach((_, i) => {
+        const d = document.createElement('button');
+        d.className = 'pow-dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        d.addEventListener('click', () => goTo(i));
+        dotsEl.appendChild(d);
+      });
+
+      function goTo(n) {
+        idx = ((n % total) + total) % total;
+        track.style.transform = 'translateX(-' + idx * 100 + '%)';
+        titleEl.textContent = slides[idx].title;
+        captEl.textContent  = slides[idx].caption;
+        dotsEl.querySelectorAll('.pow-dot').forEach((d, i) => {
+          d.classList.toggle('active', i === idx);
+        });
+      }
+
+      document.querySelector('#pow-carousel .pow-prev').addEventListener('click', () => goTo(idx - 1));
+      document.querySelector('#pow-carousel .pow-next').addEventListener('click', () => goTo(idx + 1));
+    })();
 
     // Civic Data screenshot carousel
     (function () {
